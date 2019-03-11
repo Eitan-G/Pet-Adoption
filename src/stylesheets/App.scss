@@ -1,10 +1,26 @@
-.navbar {
-  border: 1px solid black;
+.nav-options {
   height: 10vh;
   max-height: 100px;
+  width: 70%;
+  margin: auto;
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  li {
+    font-size: 2em;
+    padding-right: 10px;
+    & + li:before {
+      content: "|";
+      font-weight: bold;
+      padding-right: 10px;
+    }
+  }
 }
 
 .current-screen {
-  border: 1px solid black;
   height: 90vh;
 }
+
+// * {
+//   border: 1px solid red;
+// }
