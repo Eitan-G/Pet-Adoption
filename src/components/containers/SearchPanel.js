@@ -1,5 +1,4 @@
 import { connect } from 'react-redux'
-import PetProfile from '../PetProfile'
 import SearchPanel from '../SearchPanel';
 import { setActivePet, saveCurrentPet } from '../../actions'
 

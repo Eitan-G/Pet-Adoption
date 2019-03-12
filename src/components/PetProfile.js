@@ -1,6 +1,4 @@
 import React from 'react'
-import { NAVIGATION } from "../constants";
-
 const PetProfile = props => {
     const { pet, size } = props
 

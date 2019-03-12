@@ -3,24 +3,28 @@ import PetProfile from './PetProfile'
 
 class SearchPanel extends Component {
     componentDidMount() {
-        window.addEventListener('keydown', e => {
-            if (!this.props.pet) {
-                this.props.setActivePet(0)
-                return
-            }
-            switch(e.key) {
-                case "ArrowRight":
-                    this.props.handleApproval(this.props.pet)
-                    break
-                case "ArrowLeft":
-                    this.props.handleRejection(this.props.pet)
-                    break
-            }
-        })
+        window.addEventListener('keydown', this.onSwipe, false)
     }
 
     componentWillUnmount() {
+        window.removeEventListener('keydown', this.onSwipe, false)
+    }
 
+    onSwipe = e => {
+        if (!this.props.pet) {
+            this.props.setActivePet(0)
+            return
+        }
+        switch(e.key) {
+            case "ArrowRight":
+                this.props.handleApproval(this.props.pet)
+                break
+            case "ArrowLeft":
+                this.props.handleRejection(this.props.pet)
+                break
+            default:
+                break
+        }
     }
 
     renderProfile = () => this.props.pet
