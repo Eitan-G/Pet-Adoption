@@ -13,7 +13,6 @@ class Navbar extends Component {
     }
 
     buildNavButtons = () => {
-        console.log(this.props.activeTab)
         return <ul className="nav-options">
             { Object.values(NAVIGATION).map(this.buildNavButton) }
         </ul>

@@ -1,24 +1,79 @@
+* {
+  box-sizing: border-box;
+}
+
+#root {
+  height: 100%;
+}
+
+body {
+  width: 56.25vh;
+  height: 95vh;
+}
+
+#app {
+  height: 100%;
+  padding: 5px 5px 0 5px;
+
+}
+
+.navbar {
+  height: 11.25%;
+  overflow: hidden;
+}
+
 .nav-options {
-  height: 10vh;
-  max-height: 100px;
-  width: 70%;
+  height: 100%;
   margin: auto;
   list-style-type: none;
   display: flex;
   justify-content: center;
+  align-items: center;
+  padding: 0;
   li {
-    font-size: 2em;
-    padding-right: 10px;
-    & + li:before {
-      content: "|";
-      font-weight: bold;
-      padding-right: 10px;
+    font-size: 150%;
+    font-weight: bold;
+    padding: 0 10px 0 10px;
+    & + li {
+      border-left: 1px solid black;
     }
   }
 }
 
-.current-screen {
-  height: 90vh;
+.current-panel {
+  height: 88.75%;
+  & > div {
+    height: 100%;
+  }
+  .pet-profile-large {
+    height: 100%;
+    .img-container {
+      margin: auto;
+      img {
+        border: 1px solid black;
+        width: 100%;
+      }
+    }
+    .info {
+      height: 11%;
+      margin-left: 5px;
+      display: flex;
+      align-items: center;
+      span {
+        font-size: 150%;
+        font-weight: bold;
+      }
+    }
+    .summary {
+      border: 1px solid black;
+      font-size: 120%;
+      font-weight: bold;
+      overflow: hidden;
+      overflow-y: scroll;
+      padding: 10px;
+      height: 25%;
+    }
+  }
 }
 
 // * {

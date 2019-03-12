@@ -8,7 +8,7 @@ const initialState = {
         ...settings
     },
     pets,
-    activePetId: null,
+    activePetId: pets[0] && pets[0].id,
     savedPets: [],
     activeTab: NAVIGATION.SEARCH,
 }
@@ -23,7 +23,6 @@ function navigation(state, action) {
 }
 
 export default function rootReducer(state = initialState, action) {
-    console.log(state)
     return {
         ...state,
         activeTab: navigation(state.activeTab, action)

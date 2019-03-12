@@ -1,11 +1,14 @@
 import React, { Component } from 'react'
 import NavbarContainer from './containers/navbar'
 import '../stylesheets/App.scss'
+import SearchPanelContainer from './containers/SearchPanel'
 
 class App extends Component {
   render() {
-    return <div>
-      <div className="current-screen">Hello</div>
+    return <div id="app">
+      <div className="current-panel">
+        <SearchPanelContainer />
+      </div>
       <NavbarContainer />
     </div>
   }
