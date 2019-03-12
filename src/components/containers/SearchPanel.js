@@ -8,7 +8,7 @@ const mapStateToProps = state => {
         currentUser: { typePreference, ageRange }
     } = state
     return {
-        pet: pets.find(pet => pet.id === activePetId) || {},
+        pet: pets.find(pet => pet.id === activePetId),
         currentUser: { typePreference, ageRange },
     }
 }
