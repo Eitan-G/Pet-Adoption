@@ -3,12 +3,18 @@ import { NAVIGATION } from "../constants";
 import pets from "../pets.json"
 import settings from "../settings.json"
 
+const { typePreference, ageRange: { max, min } } = settings
+
+const filteredPets = pets.filter(
+    pet => pet.type === typePreference && pet.age >= min && pet.age <= max
+)
+
 const initialState = {
     currentUser: {
         ...settings
     },
-    pets,
-    activePetId: pets[0] && pets[0].id,
+    pets: filteredPets,
+    activePetId: filteredPets[0] && filteredPets[0].id,
     savedPets: [],
     activeTab: NAVIGATION.SEARCH,
 }
