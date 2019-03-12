@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
-import Navbar from "./Navbar"
+import NavbarContainer from './containers/navbar'
 import '../stylesheets/App.scss'
 
 class App extends Component {
   render() {
     return <div>
       <div className="current-screen">Hello</div>
-      <Navbar />
+      <NavbarContainer />
     </div>
   }
 }

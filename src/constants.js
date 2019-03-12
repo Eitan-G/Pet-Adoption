@@ -1,9 +1,5 @@
-const foo = {
-    navigation: [
-        "Search",
-        "Saved",
-        "Settings",
-    ]
+export const NAVIGATION = {
+    SEARCH: "Search",
+    SAVED: "Saved",
+    SETTINGS: "Settings",
 }
-
-export default foo

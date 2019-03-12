@@ -1,18 +1,22 @@
 import React, { Component } from "react";
-import constants from "../constants"
+import { NAVIGATION } from "../constants"
 
 class Navbar extends Component {
     handleNavClick(name) {
-        console.log(name)
+        this.props.setActiveTab(name)
     }
 
-    buildNavButtons() {
-        const options = constants.navigation
-        return <ul className="nav-options">{
-            options.map((name, i) => <li key={`nav-li-${i}`} onClick={() => this.handleNavClick(name)}>
-                    {name}
-                </li>)
-        }</ul>
+    buildNavButton = (name, i) => {
+        return <li key={`nav-li-${i}`} onClick={() => this.handleNavClick(name)}>
+            {name}
+        </li>
+    }
+
+    buildNavButtons = () => {
+        console.log(this.props.activeTab)
+        return <ul className="nav-options">
+            { Object.values(NAVIGATION).map(this.buildNavButton) }
+        </ul>
     }
 
     render() {
