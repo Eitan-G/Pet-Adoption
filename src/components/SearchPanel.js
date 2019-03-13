@@ -11,9 +11,13 @@ class SearchPanel extends Component {
     }
 
     onSwipe = e => {
-        if (!this.props.pet) {
-            this.props.setActivePet(0)
-            return
+        switch(e.key) {
+            case "ArrowRight":
+            case "ArrowLeft":
+                if (!this.props.pet) { //end of the line
+                    this.props.setActivePet(0)
+                    return
+                }
         }
         switch(e.key) {
             case "ArrowRight":
@@ -21,8 +25,6 @@ class SearchPanel extends Component {
                 break
             case "ArrowLeft":
                 this.props.handleRejection(this.props.pet)
-                break
-            default:
                 break
         }
     }
@@ -39,3 +41,5 @@ class SearchPanel extends Component {
 }
 
 export default SearchPanel
+
+// TODO: VIEW SAVED, SET SETTINGS

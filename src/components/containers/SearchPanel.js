@@ -19,8 +19,8 @@ const mapDispatchToProps = dispatch => {
             dispatch(setActivePet(pet + 1))
         },
         handleApproval: pet => {
-            dispatch(setActivePet(pet + 1))
             dispatch(saveCurrentPet())
+            dispatch(setActivePet(pet + 1))
         },
         setActivePet: pet => { dispatch(setActivePet(0)) }
     }
