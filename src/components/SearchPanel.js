@@ -34,9 +34,7 @@ class SearchPanel extends Component {
         : <div>No more pets available! Keep swiping to go back to the first</div>
 
     render() {
-        return <div>
-            {this.renderProfile()}
-        </div>
+        return this.renderProfile()
     }
 }
 

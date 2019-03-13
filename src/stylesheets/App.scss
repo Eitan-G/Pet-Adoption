@@ -19,7 +19,6 @@ body {
 
 .navbar {
   height: 11.25%;
-  overflow: hidden;
 }
 
 .nav-options {
@@ -42,46 +41,79 @@ body {
 
 .current-panel {
   height: 88.75%;
-  & > div {
-    height: 100%;
-  }
   .pet-profile-large {
     height: 100%;
     .img-container {
-      margin: auto;
       height: 57%;
       img {
         display: block;
-        margin-left: auto;
-        margin-right: auto;
+        margin: auto;
         border: 1px solid black;
         max-width: 100%;
         max-height: 100%;
-        object-fit: contain;
       }
     }
-    .info {
-      height: 11%;
+    .summary {
+      height: 43%;;
+      .info {
+        margin-left: 5px;
+        display: flex;
+        align-items: center;
+        height: 25%;
+        span {
+          font-size: 150%;
+          font-weight: bold;
+        }
+      }
+      .blurb {
+        border: 1px solid black;
+        font-size: 120%;
+        font-weight: bold;
+        overflow: hidden;
+        overflow-y: scroll;
+        padding: 10px;
+        height: 75%;
+      }
+    }
+  }
+  .pet-profile-small {
+    display: flex;
+    border: 1px solid black;
+    padding: 5px;
+    height: 70px;
+    .img-container {
+      max-width: 22%;
+      overflow-y: hidden;
+      img {
+        width: 100%;
+      }
+    }
+    .summary {
       margin-left: 5px;
-      display: flex;
-      align-items: center;
+      .info {
+        height: 49%;
+        width: 100%;
       span {
         font-size: 150%;
         font-weight: bold;
       }
     }
-    .summary {
-      border: 1px solid black;
-      font-size: 120%;
-      font-weight: bold;
+    .blurb {
+      align-self: flex-end;
+      height: 49%;
       overflow: hidden;
-      overflow-y: scroll;
-      padding: 10px;
-      height: 32%;
+      font-size: 85%;
+    }
+    }
+  }
+  .saved-pets-list {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    height: 100%;
+    overflow-y: scroll;
+    li {
+      margin-bottom: 5%;
     }
   }
 }
-
-// * {
-//   border: 1px solid red;
-// }
