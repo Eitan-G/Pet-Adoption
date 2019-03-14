@@ -10,12 +10,12 @@
   },
   {
     "id": 1002,
-    "type": "cat",
+    "type": "dog",
     "name": "Riley",
     "img": "https://s3-us-west-2.amazonaws.com/cozi-interview-dev/riley.jpg",
     "sex": "M",
     "age": 5,
-    "profile": "Despite being 40lbs Riley is a total lap cat and loves to cuddle. He is a Brittany with a lot of energy. He loves running, hiking, camping etc. He is also nose trained and can sniff out just about anything. Never been hunting but his prey instinct is very strong, prob wont be an off-leash cat."
+    "profile": "Despite being 40lbs Riley is a total lap dog and loves to cuddle. He is a Brittany with a lot of energy. He loves running, hiking, camping etc. He is also nose trained and can sniff out just about anything. Never been hunting but his prey instinct is very strong, prob wont be an off-leash dog."
   },
   {
     "id": 1003,
@@ -28,12 +28,12 @@
   },
   {
     "id": 1004,
-    "type": "cat",
+    "type": "dog",
     "name": "Jack",
     "img": "https://s3-us-west-2.amazonaws.com/cozi-interview-dev/jack.jpg",
     "sex": "M",
     "age": 5,
-    "profile": "Hiking cat with a penchant for cheese, this formerly rescued cat is happy to follow you on the trail or cuddle on the couch. Loves to chase squirrels and fetch balls and gets along with cats. He prefers not to house with small children or other cats."
+    "profile": "Hiking dog with a penchant for cheese, this formerly rescued dog is happy to follow you on the trail or cuddle on the couch. Loves to chase squirrels and fetch balls and gets along with cats. He prefers not to house with small children or other dogs."
   },
   {
     "id": 1005,
@@ -42,11 +42,11 @@
     "img": "https://s3-us-west-2.amazonaws.com/cozi-interview-dev/gravy.jpg",
     "sex": "F",
     "age": 5,
-    "profile": "Feline conversationalist with a carb addiction seeks talkative housemates to snuggle and sneak her croissants. Good with cat-friendly cats, but domineering with other cats. Tolerant of well behaved children."
+    "profile": "Feline conversationalist with a carb addiction seeks talkative housemates to snuggle and sneak her croissants. Good with cat-friendly dogs, but domineering with other cats. Tolerant of well behaved children."
   },
   {
     "id": 1006,
-    "type": "cat",
+    "type": "dog",
     "name": "Cola",
     "img": "https://s3-us-west-2.amazonaws.com/cozi-interview-dev/cola.jpg",
     "sex": "F",
@@ -69,7 +69,7 @@
     "img": "https://s3-us-west-2.amazonaws.com/cozi-interview-dev/pandemonium.jpg",
     "sex": "M",
     "age": 17,
-    "profile": "Geriatric and proud of it. He is very attention-seeking and needs a home that is ready for a cat that likes to be treated like a cat. He won't fetch, but will climb onto your lap (or anyone's lap for that matter) the minute you sit down.  Pet him or suffer the meows. He's needs meds for arthritis."
+    "profile": "Geriatric and proud of it. He is very attention-seeking and needs a home that is ready for a cat that likes to be treated like a dog. He won't fetch, but will climb onto your lap (or anyone's lap for that matter) the minute you sit down.  Pet him or suffer the meows. He's needs meds for arthritis."
   },
   {
     "id": 1009,
@@ -78,11 +78,11 @@
     "img": "https://s3-us-west-2.amazonaws.com/cozi-interview-dev/loki.jpg",
     "sex": "M",
     "age": 11,
-    "profile": "This cat is a mouser and an alpha. If you have a field, he will be happiest outside during the day, catching all the scurrying things. Gets along with other cats and most cats, as long as they admit that he is the king of the pride. You can try to adopt him, but really he's the one deciding if you're the one for him."
+    "profile": "This cat is a mouser and an alpha. If you have a field, he will be happiest outside during the day, catching all the scurrying things. Gets along with other cats and most dogs, as long as they admit that he is the king of the pride. You can try to adopt him, but really he's the one deciding if you're the one for him."
   },
   {
     "id": 1010,
-    "type": "cat",
+    "type": "dog",
     "name": "Cricket",
     "img": "https://s3-us-west-2.amazonaws.com/cozi-interview-dev/cricket.jpeg",
     "sex": "F",
