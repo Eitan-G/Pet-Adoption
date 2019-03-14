@@ -1,4 +1,4 @@
-import { SET_ACTIVE_TAB, SAVE_CURRENT_PET, SET_ACTIVE_PET } from "../actions"
+import { SET_ACTIVE_TAB, SAVE_CURRENT_PET, SET_ACTIVE_PET, UPDATE_AGE_PREFERENCE } from "../actions"
 import { NAVIGATION } from "../constants";
 import pets from "../pets.json"
 import settings from "../settings.json"
@@ -53,11 +53,25 @@ function savePet(state, action) {
     }
 }
 
+function user(state, action) {
+    const { type, payload } = action
+    switch(type) {
+        case UPDATE_AGE_PREFERENCE: {
+            const newState = { ...state }
+            newState.ageRange[payload.type] = payload.value
+            return newState
+        }
+        default:
+            return state
+    }
+}
+
 export default function rootReducer(state = initialState, action) {
     return {
         ...state,
         savedPets: savePet(state, action),
         activePet: activePet(state, action),
-        activeTab: navigation(state.activeTab, action)
+        activeTab: navigation(state.activeTab, action),
+        currentUser: user(state.currentUser, action),
     }
 }

@@ -3,7 +3,7 @@ import NavbarContainer from './containers/navbar'
 import '../stylesheets/App.scss'
 import SearchPanelContainer from './containers/SearchPanel'
 import SavedPetsContainer from './containers/SavedPets'
-// import UserSettingsContainer from './containers/UserSettings'
+import UserProfileContainer from './containers/UserProfile'
 import { NAVIGATION } from '../constants'
 
 class App extends Component {
@@ -15,7 +15,7 @@ class App extends Component {
       case SEARCH:
         return <SearchPanelContainer />
       case SETTINGS:
-        return //<UserSettingsContainer />
+        return <UserProfileContainer />
       default:
         return <SearchPanelContainer />
     }
