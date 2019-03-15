@@ -39,5 +39,3 @@ class SearchPanel extends Component {
 }
 
 export default SearchPanel
-
-// TODO: VIEW SAVED, SET SETTINGS

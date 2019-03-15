@@ -30,7 +30,7 @@ function navigation(state, action) {
 }
 
 function activePet(state, action) {
-    let { pets, activePetId } = state
+    let { pets, activePetId, currentUser: { typePreference, ageRange: { min, max } } } = state
     const filteredPets = pets.filter(
         pet => pet.type === typePreference && pet.age >= min && pet.age <= max
     )
@@ -38,8 +38,9 @@ function activePet(state, action) {
 
     switch(action.type) {
         case GO_TO_NEXT_PET: {
+            if (filteredPets.length === 0) { return }
             const nextPet = filteredPets[activePetIndex + 1]
-            return nextPet ? nextPet.id : null
+            return nextPet ? nextPet.id : filteredPets[0].id
         }
         default:
             return state.activePetId
