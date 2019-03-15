@@ -6,17 +6,17 @@ export const getSavedPetIds = state => state.savedPets
 export const getActivePetId = state => state.activePetId
 export const getActiveTab = state => state.activeTab
 
-const getPreferences = createSelector(
+export const getPreferences = createSelector(
     getCurrentUser,
-    user => ({ type: user.typePreference, age: user.ageRange })
+    user => ({ typePreference: user.typePreference, ageRange: user.ageRange })
 )
 
 export const getVisiblePets = createSelector(
     [getPreferences, getAllPets],
     (preferences, allPets) => {
-        const { type, age } = preferences
+        const { typePreference, ageRange } = preferences
         return allPets.filter(
-            pet => pet.type === type && pet.age >= age.min && pet.age <= age.max
+            pet => pet.type === typePreference && pet.age >= ageRange.min && pet.age <= ageRange.max
         )
     }
 )
