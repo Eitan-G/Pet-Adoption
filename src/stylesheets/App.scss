@@ -45,8 +45,10 @@ body {
     height: 100%;
     position: relative;
     .back-to-saved:before {
-      content: 'Back'
-    
+      content: 'Back';
+      position: fixed;
+      background-color: #ffffff;
+      padding: 3px 8px 3px 5px;
     }
   }
   .pet-profile-large {
