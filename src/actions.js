@@ -24,3 +24,11 @@ export const updateAgePreference = (key, value) => {
         }
     }
 }
+
+export const UPDATE_TYPE_PREFERENCE = 'UPDATE_TYPE_PREFERENCE'
+export const updateTypePreference = typePreference => {
+    return {
+        type: UPDATE_TYPE_PREFERENCE,
+        payload: { typePreference },
+    }
+}

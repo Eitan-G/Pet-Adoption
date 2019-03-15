@@ -1,4 +1,10 @@
-import { SET_ACTIVE_TAB, SAVE_CURRENT_PET, UPDATE_AGE_PREFERENCE, GO_TO_NEXT_PET } from "../actions"
+import {
+    SET_ACTIVE_TAB,
+    SAVE_CURRENT_PET,
+    UPDATE_AGE_PREFERENCE,
+    GO_TO_NEXT_PET,
+    UPDATE_TYPE_PREFERENCE
+} from "../actions"
 import { NAVIGATION } from "../constants";
 import pets from "../pets.json"
 import settings from "../settings.json"
@@ -14,7 +20,7 @@ const initialState = {
     currentUser: {
         ...settings
     },
-    pets: filteredPets,
+    pets,
     activePetId: filteredPets[0].id,
     savedPets: new Set(savedPets),
     activeTab: NAVIGATION.SEARCH,
@@ -66,6 +72,11 @@ function user(state, action) {
         case UPDATE_AGE_PREFERENCE: {
             const newState = { ...state }
             newState.ageRange[payload.type] = payload.value
+            return newState
+        }
+        case UPDATE_TYPE_PREFERENCE: {
+            const newState = { ...state }
+            newState.typePreference = payload.typePreference
             return newState
         }
         default:

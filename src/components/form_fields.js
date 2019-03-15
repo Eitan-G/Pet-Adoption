@@ -1,15 +1,20 @@
 import React from 'react'
+import capitalize from '../helpers/capitalize'
 
-export const RockerSwitch = ({title, options: [a, b]}) => {
+export const RockerSwitch = ({title, checked, onChange, options: [a, b]}) => {
+    const handleRockerToggle = e => {
+        const newPreference = e.target.checked ? b : a
+        onChange(newPreference)
+    }
     return <div className='rocker-switch'>
         <span className='preference-title'>{title}</span>
         <div className='options'>
-            <span>{a}</span>
+            <span>{capitalize(a)}</span>
             <label className='switch'>
-                <input type='checkbox' />
+                <input checked={checked} onChange={handleRockerToggle} type='checkbox' />
                 <span className='slider'></span>
             </label>
-            <span>{b}</span>
+            <span>{capitalize(b)}</span>
         </div>
     </div>
 }
