@@ -40,3 +40,11 @@ export const setActivePet = id => {
         payload: { id }
     }
 }
+
+export const UPDATE_PROFILE = 'UPDATE_PROFILE'
+export const updateProfile = text => {
+    return {
+        type: UPDATE_PROFILE,
+        payload: { text }
+    }
+}

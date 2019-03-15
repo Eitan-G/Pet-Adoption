@@ -4,7 +4,8 @@ import {
     UPDATE_AGE_PREFERENCE,
     GO_TO_NEXT_PET,
     UPDATE_TYPE_PREFERENCE,
-    SET_ACTIVE_PET
+    SET_ACTIVE_PET,
+    UPDATE_PROFILE
 } from "../actions"
 import { NAVIGATION } from "../constants";
 import pets from "../pets.json"
@@ -70,17 +71,19 @@ function savePet(state, action) {
 
 function user(state, action) {
     const { type, payload } = action
+    const newState = { ...state }
     switch(type) {
         case UPDATE_AGE_PREFERENCE: {
-            const newState = { ...state }
             newState.ageRange[payload.type] = payload.value
             return newState
         }
         case UPDATE_TYPE_PREFERENCE: {
-            const newState = { ...state }
             newState.typePreference = payload.typePreference
             return newState
         }
+        case UPDATE_PROFILE:
+            newState.profile = payload.text
+            return newState
         default:
             return state
     }
