@@ -33,6 +33,9 @@ body {
     font-size: 150%;
     font-weight: bold;
     padding: 0 10px 0 10px;
+    text-decoration: underline;
+    color: #0000EE;
+    cursor: pointer;
     & + li {
       border-left: 1px solid black;
     }
@@ -198,7 +201,6 @@ body {
   }
 }
 
-// /*
 .min-max {
   display: flex;
   justify-content: space-between;
@@ -216,6 +218,5 @@ body {
     }
   }
 }
-// */
 
 
