@@ -1,9 +1,9 @@
-import { SET_ACTIVE_TAB, SAVE_CURRENT_PET, GO_TO_NEXT_PET, SET_ACTIVE_PET, UPDATE_USER } from "../actions"
-import { NAVIGATION } from "../constants";
-import pets from "../pets.json"
-import settings from "../settings.json"
-import { getActiveTab, getActivePetId, getCurrentUser, getSavedPetIds, getVisiblePets, getNextPet } from "../selectors";
-import getInitialPet from "../helpers/get_initial_pet";
+import { SET_ACTIVE_TAB, SAVE_CURRENT_PET, GO_TO_NEXT_PET, SET_ACTIVE_PET, UPDATE_USER } from "./actions"
+import { NAVIGATION } from "./constants";
+import pets from "./pets.json"
+import settings from "./settings.json"
+import { getActiveTab, getActivePetId, getCurrentUser, getSavedPetIds, getVisiblePets, getNextPet } from "./selectors";
+import getInitialPet from "./helpers/get_initial_pet";
 
 const initialState = {
     currentUser: { ...settings },

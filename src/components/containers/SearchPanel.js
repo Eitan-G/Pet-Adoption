@@ -25,6 +25,6 @@ const mapDispatchToProps = dispatch => {
 const SearchPanelContainer = connect(
     mapStateToProps,
     mapDispatchToProps,
-)(SearchPanel)
+)(SearchPanel)  
 
 export default SearchPanelContainer
