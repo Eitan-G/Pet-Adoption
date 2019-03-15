@@ -3,7 +3,7 @@ In order to run this app you will need to do the following:
 1) Install Node if you don't already have it. https://nodejs.org/en/download/
 2) npm is bundled with Node so all you have to do now is `npm install` and `npm start`
 3) The app can be found at localhost:3000.
-`
+
 Note: I had trouble fetching the JSON from S3 due to CORS so I downloaded the files and they are located in `src\settings.json` and `src\pets.json`. If you want to use a different data set you will have to overwrite the contents of the files.
 
 # Instructions
