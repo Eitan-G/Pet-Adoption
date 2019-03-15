@@ -1,6 +1,7 @@
 import SavedPets from '../SavedPets'
 import { connect } from 'react-redux';
-import { setActiveTab } from '../../actions'
+import { setActiveTab, setClickedPet } from '../../actions'
+import { PET_MODAL } from '../../constants'
 
 const mapStateToProps = state => {
     return {
@@ -10,7 +11,11 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        setActiveTab: tab => { dispatch(setActiveTab(tab)) }
+        setActiveTab: tab => { dispatch(setActiveTab(tab)) },
+        openPetModal: id => {
+            dispatch(setClickedPet(id))
+            dispatch(setActiveTab(PET_MODAL))
+        }
     }
 }
 
