@@ -15,11 +15,11 @@ export const RockerSwitch = ({title, options: [a, b]}) => {
 }
 
 export const MinMax = ({title, min, max, handleMinChange, handleMaxChange}) => {
-    return <div className=''>
+    return <div className='min-max'>
         <span className='preference-title'>{title}</span>
         <div className='options'>
-            <input value={min} onChange={handleMinChange}/>
-            <input value={max} onChange={handleMaxChange}/>
+            <input value={min} placeholder='min' onChange={handleMinChange}/>
+            <input value={max} placeholder='max' onChange={handleMaxChange}/>
         </div>
     </div>
 }
