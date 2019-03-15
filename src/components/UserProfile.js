@@ -24,7 +24,12 @@ const UserProfile = props => {
         </div>
         <div className='adopter-preferences'>
             <h2>Preferences</h2>
-            <div><RockerSwitch checked={typePreference === options[1]} onChange={updateTypePreference} title='Animal' options={options}/></div>
+            <div><RockerSwitch
+                checked={typePreference === options[1]}
+                onChange={updateTypePreference}
+                title='Animal'
+                options={options}/>
+            </div>
             <div><MinMax
                 title='Age'
                 min={ageRange.min}

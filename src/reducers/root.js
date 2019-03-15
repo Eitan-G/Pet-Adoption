@@ -1,10 +1,4 @@
-import {
-    SET_ACTIVE_TAB,
-    SAVE_CURRENT_PET,
-    GO_TO_NEXT_PET,
-    SET_ACTIVE_PET,
-    UPDATE_USER
-} from "../actions"
+import { SET_ACTIVE_TAB, SAVE_CURRENT_PET, GO_TO_NEXT_PET, SET_ACTIVE_PET, UPDATE_USER } from "../actions"
 import { NAVIGATION } from "../constants";
 import pets from "../pets.json"
 import settings from "../settings.json"
@@ -16,12 +10,10 @@ const filteredPets = pets.filter(
 )
 
 const initialState = {
-    currentUser: {
-        ...settings
-    },
+    currentUser: { ...settings },
     pets,
     activePetId: filteredPets[0].id,
-    savedPets: new Set(),
+    savedPets: [],
     activeTab: NAVIGATION.SEARCH,
 }
 

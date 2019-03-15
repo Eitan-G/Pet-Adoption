@@ -11,10 +11,13 @@ const SavedPets = ({ pets, setActiveTab, setActivePet }) => {
         <li onClick={() => handlePetClick(pet.id)} key={`savedPet-${i}`}>
             <PetProfile pet={pet} size='small' />
         </li>
-
-    return <ol className='saved-pets-list'>
+    const noSavedPetsMessage = <div className='no-saved-pets'>
+        You haven't saved any pets. Go search for some pets to adopt!
+    </div>
+    const petsList = <ol className='saved-pets-list'>
         {pets.map((pet, i) => buildPetBlurb(pet, i))}
     </ol>
+    return pets.length > 0 ? petsList : noSavedPetsMessage
 }
 
 export default SavedPets
