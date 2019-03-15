@@ -2,7 +2,7 @@ import { SET_ACTIVE_TAB, SAVE_CURRENT_PET, GO_TO_NEXT_PET, SET_ACTIVE_PET, UPDAT
 import { NAVIGATION } from "../constants";
 import pets from "../pets.json"
 import settings from "../settings.json"
-import { getActiveTab } from "../selectors";
+import { getActiveTab, getActivePetId } from "../selectors";
 
 const { typePreference, ageRange: { max, min } } = settings
 
@@ -28,7 +28,8 @@ function navigation(state, action) {
 }
 
 function activePet(state, action) {
-    let { pets, activePetId, currentUser: { typePreference, ageRange: { min, max } } } = state
+    const activePetId = getActivePetId(state)
+    let { pets, currentUser: { typePreference, ageRange: { min, max } } } = state
     const filteredPets = pets.filter(
         pet => pet.type === typePreference && pet.age >= min && pet.age <= max
     )
@@ -44,14 +45,15 @@ function activePet(state, action) {
             return action.payload.id
         }
         default:
-            return state.activePetId
+            return activePetId
     }
 }
 
 function savePet(state, action) {
+    const activePetId = getActivePetId(state)
     switch(action.type) {
         case SAVE_CURRENT_PET: {
-            const { savedPets, activePetId } = state
+            const { savedPets } = state
             const newSet = new Set(savedPets).add(activePetId)
             return newSet
         }
