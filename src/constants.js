@@ -4,4 +4,4 @@ export const NAVIGATION = {
     SETTINGS: "Settings",
 }
 
-export const PET_DETAILS = "PET_DETAILS"
+export const PET_DETAILS = "Details"

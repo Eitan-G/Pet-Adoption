@@ -5,7 +5,7 @@ export const getAllPets = state => state.pets
 export const getSavedPetIds = state => state.savedPets
 export const getActivePetId = state => state.activePetId
 export const getActiveTab = state => state.activeTab
-export const getClickedPet = state => state.clickedPet
+export const getClickedPetId = state => state.clickedPetId
 
 export const getPreferences = createSelector(
     getCurrentUser,
@@ -39,5 +39,12 @@ export const getSavedPetDetails = createSelector(
     [getAllPets, getSavedPetIds],
     (allPets, savedIds) => {
         return [...savedIds].map(id => allPets.find(pet => pet.id === id))
+    }
+)
+
+export const getClickedPetDetails = createSelector(
+    [getAllPets, getClickedPetId],
+    (allPets, id) => {
+        return allPets.find(pet => pet.id === id)
     }
 )

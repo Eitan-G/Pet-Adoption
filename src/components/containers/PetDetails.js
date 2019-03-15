@@ -1,8 +1,11 @@
 import { connect } from 'react-redux'
 import PetDetails from '../PetDetails'
+import { getClickedPetDetails } from '../../selectors';
 
  const mapStateToProps = state => {
-    return {}
+    return {
+        pet: getClickedPetDetails(state)
+    }
 }
 
  const mapDispatchToProps = dispatch => {

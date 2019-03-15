@@ -2,7 +2,7 @@ import { SET_CLICKED_PET, SET_ACTIVE_TAB, SAVE_CURRENT_PET, GO_TO_NEXT_PET, UPDA
 import { NAVIGATION } from "./constants";
 import pets from "./pets.json"
 import settings from "./settings.json"
-import { getActiveTab, getActivePetId, getCurrentUser, getSavedPetIds, getVisiblePets, getNextPet, getClickedPet } from "./selectors";
+import { getActiveTab, getActivePetId, getCurrentUser, getSavedPetIds, getVisiblePets, getNextPet, getClickedPetId } from "./selectors";
 import getInitialPet from "./helpers/get_initial_pet";
 
 const initialState = {
@@ -11,7 +11,7 @@ const initialState = {
     activePetId: getInitialPet(pets, settings),
     savedPets: [],
     activeTab: NAVIGATION.SEARCH,
-    clickedPet: null
+    clickedPetId: null
 }
 
 function navigation(state, action) {
@@ -79,6 +79,6 @@ export default function rootReducer(state = initialState, action) {
         activePetId: activePet(state, action),
         activeTab: navigation(getActiveTab(state), action),
         currentUser: user(getCurrentUser(state), action),
-        clickedPet: clickedPet(getClickedPet(state), action)
+        clickedPetId: clickedPet(getClickedPetId(state), action)
     }
 }
