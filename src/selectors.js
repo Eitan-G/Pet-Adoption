@@ -20,3 +20,11 @@ export const getVisiblePets = createSelector(
         )
     }
 )
+
+export const getNextPet = createSelector(
+    [getVisiblePets, getActivePetId],
+    (pets, id) => {
+        const activePetIndex = pets.findIndex(pet => pet.id === id)
+        return pets[activePetIndex + 1]
+    }
+)

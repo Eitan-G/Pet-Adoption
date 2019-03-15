@@ -2,7 +2,7 @@ import { SET_ACTIVE_TAB, SAVE_CURRENT_PET, GO_TO_NEXT_PET, SET_ACTIVE_PET, UPDAT
 import { NAVIGATION } from "../constants";
 import pets from "../pets.json"
 import settings from "../settings.json"
-import { getActiveTab, getActivePetId, getCurrentUser, getSavedPets, getVisiblePets } from "../selectors";
+import { getActiveTab, getActivePetId, getCurrentUser, getSavedPets, getVisiblePets, getNextPet } from "../selectors";
 import getInitialPet from "../helpers/get_initial_pet";
 
 const initialState = {
@@ -24,14 +24,13 @@ function navigation(state, action) {
 
 function activePet(state, action) {
     const activePetId = getActivePetId(state)
-    const filteredPets = getVisiblePets(state)
-    const activePetIndex = filteredPets.findIndex(pet => pet.id === activePetId)
+    const visiblePets = getVisiblePets(state)
 
     switch(action.type) {
         case GO_TO_NEXT_PET: {
-            if (filteredPets.length === 0) { return }
-            const nextPet = filteredPets[activePetIndex + 1]
-            return nextPet ? nextPet.id : filteredPets[0].id
+            if (visiblePets.length === 0) { return }
+            const nextPet = getNextPet(state)
+            return nextPet ? nextPet.id : visiblePets[0].id
         }
         case SET_ACTIVE_PET: {
             return action.payload.id
