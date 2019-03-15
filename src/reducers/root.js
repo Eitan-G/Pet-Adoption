@@ -3,17 +3,12 @@ import { NAVIGATION } from "../constants";
 import pets from "../pets.json"
 import settings from "../settings.json"
 import { getActiveTab, getActivePetId, getCurrentUser, getAllPets } from "../selectors";
-
-const { typePreference, ageRange: { max, min } } = settings
-
-const filteredPets = pets.filter(
-    pet => pet.type === typePreference && pet.age >= min && pet.age <= max
-)
+import getInitialPet from "../helpers/get_initial_pet";
 
 const initialState = {
     currentUser: { ...settings },
     pets,
-    activePetId: filteredPets[0].id,
+    activePetId: getInitialPet(pets, settings),
     savedPets: [],
     activeTab: NAVIGATION.SEARCH,
 }
