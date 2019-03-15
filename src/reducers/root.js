@@ -2,6 +2,7 @@ import { SET_ACTIVE_TAB, SAVE_CURRENT_PET, GO_TO_NEXT_PET, SET_ACTIVE_PET, UPDAT
 import { NAVIGATION } from "../constants";
 import pets from "../pets.json"
 import settings from "../settings.json"
+import { getActiveTab } from "../selectors";
 
 const { typePreference, ageRange: { max, min } } = settings
 
@@ -76,7 +77,7 @@ export default function rootReducer(state = initialState, action) {
         ...state,
         savedPets: savePet(state, action),
         activePetId: activePet(state, action),
-        activeTab: navigation(state.activeTab, action),
+        activeTab: navigation(getActiveTab(state), action),
         currentUser: user(state.currentUser, action),
     }
 }
