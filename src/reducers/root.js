@@ -1,11 +1,9 @@
 import {
     SET_ACTIVE_TAB,
     SAVE_CURRENT_PET,
-    UPDATE_AGE_PREFERENCE,
     GO_TO_NEXT_PET,
-    UPDATE_TYPE_PREFERENCE,
     SET_ACTIVE_PET,
-    UPDATE_PROFILE
+    UPDATE_USER
 } from "../actions"
 import { NAVIGATION } from "../constants";
 import pets from "../pets.json"
@@ -73,16 +71,8 @@ function user(state, action) {
     const { type, payload } = action
     const newState = { ...state }
     switch(type) {
-        case UPDATE_AGE_PREFERENCE: {
-            newState.ageRange[payload.type] = payload.value
-            return newState
-        }
-        case UPDATE_TYPE_PREFERENCE: {
-            newState.typePreference = payload.typePreference
-            return newState
-        }
-        case UPDATE_PROFILE:
-            newState.profile = payload.text
+        case UPDATE_USER:
+            newState[payload.key] = payload.value
             return newState
         default:
             return state

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import UserProfile from '../UserProfile'
-import { updateAgePreference, updateProfile, goToNextPet, updateTypePreference } from '../../actions'
+import { goToNextPet, updateUser } from '../../actions'
 
 const mapStateToProps = state => {
     return {
@@ -10,15 +10,10 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        updateAgePreference: (key, value) => {
-            dispatch(updateAgePreference(key, value))
-            dispatch(goToNextPet())
-        },
-        updateTypePreference: preference => {
-            dispatch(updateTypePreference(preference))
-            dispatch(goToNextPet())
-        },
-        updateProfile: text => { dispatch(updateProfile(text)) }
+        goToNextPet: () => { dispatch(goToNextPet()) },
+        updateUser: (key, value) => {
+            dispatch(updateUser(key, value))
+        }
     }
 }
 

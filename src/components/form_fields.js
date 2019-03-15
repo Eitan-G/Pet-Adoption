@@ -23,8 +23,8 @@ export const MinMax = ({title, min, max, handleMinChange, handleMaxChange}) => {
     return <div className='min-max'>
         <span className='preference-title'>{title}</span>
         <div className='options'>
-            <input value={min} placeholder='min' onChange={handleMinChange}/>
-            <input value={max} placeholder='max' onChange={handleMaxChange}/>
+            <input value={min} placeholder='min' onChange={handleMinChange} type='number' min={0} />
+            <input value={max} placeholder='max' onChange={handleMaxChange} type='number' min={0} />
         </div>
     </div>
 }
