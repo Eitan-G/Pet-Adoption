@@ -1,8 +1,8 @@
-import { SET_ACTIVE_TAB, SAVE_CURRENT_PET, GO_TO_NEXT_PET, SET_ACTIVE_PET, UPDATE_USER } from "./actions"
+import { SET_CLICKED_PET, SET_ACTIVE_TAB, SAVE_CURRENT_PET, GO_TO_NEXT_PET, UPDATE_USER } from "./actions"
 import { NAVIGATION } from "./constants";
 import pets from "./pets.json"
 import settings from "./settings.json"
-import { getActiveTab, getActivePetId, getCurrentUser, getSavedPetIds, getVisiblePets, getNextPet } from "./selectors";
+import { getActiveTab, getActivePetId, getCurrentUser, getSavedPetIds, getVisiblePets, getNextPet, getClickedPet } from "./selectors";
 import getInitialPet from "./helpers/get_initial_pet";
 
 const initialState = {
@@ -11,6 +11,7 @@ const initialState = {
     activePetId: getInitialPet(pets, settings),
     savedPets: [],
     activeTab: NAVIGATION.SEARCH,
+    clickedPet: null
 }
 
 function navigation(state, action) {
@@ -31,9 +32,6 @@ function activePet(state, action) {
             if (visiblePets.length === 0) { return }
             const nextPet = getNextPet(state)
             return nextPet ? nextPet.id : visiblePets[0].id
-        }
-        case SET_ACTIVE_PET: {
-            return action.payload.id
         }
         default:
             return activePetId
@@ -65,6 +63,15 @@ function user(state, action) {
     }
 }
 
+function clickedPet(state, action) {
+    switch(action.type) {
+        case SET_CLICKED_PET:
+            return action.payload.id
+        default:
+            return state
+    }
+}
+
 export default function rootReducer(state = initialState, action) {
     return {
         ...state,
@@ -72,5 +79,6 @@ export default function rootReducer(state = initialState, action) {
         activePetId: activePet(state, action),
         activeTab: navigation(getActiveTab(state), action),
         currentUser: user(getCurrentUser(state), action),
+        clickedPet: clickedPet(getClickedPet(state), action)
     }
 }

@@ -4,7 +4,8 @@ import '../stylesheets/App.scss'
 import SearchPanelContainer from './containers/SearchPanel'
 import SavedPetsContainer from './containers/SavedPets'
 import UserProfileContainer from './containers/UserProfile'
-import { NAVIGATION } from '../constants'
+import PetDetailsContainer from './containers/PetDetails'
+import { NAVIGATION, PET_DETAILS } from '../constants'
 
 class App extends Component {
   renderCurrentPanel = () => {
@@ -16,6 +17,8 @@ class App extends Component {
         return <SearchPanelContainer />
       case SETTINGS:
         return <UserProfileContainer />
+      case PET_DETAILS:
+        return <PetDetailsContainer />
       default:
         return <SearchPanelContainer />
     }

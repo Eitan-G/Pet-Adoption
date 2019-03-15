@@ -5,6 +5,7 @@ export const getAllPets = state => state.pets
 export const getSavedPetIds = state => state.savedPets
 export const getActivePetId = state => state.activePetId
 export const getActiveTab = state => state.activeTab
+export const getClickedPet = state => state.clickedPet
 
 export const getPreferences = createSelector(
     getCurrentUser,
