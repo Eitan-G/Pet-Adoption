@@ -3,7 +3,8 @@ import {
     SAVE_CURRENT_PET,
     UPDATE_AGE_PREFERENCE,
     GO_TO_NEXT_PET,
-    UPDATE_TYPE_PREFERENCE
+    UPDATE_TYPE_PREFERENCE,
+    SET_ACTIVE_PET
 } from "../actions"
 import { NAVIGATION } from "../constants";
 import pets from "../pets.json"
@@ -46,6 +47,9 @@ function activePet(state, action) {
             if (filteredPets.length === 0) { return }
             const nextPet = filteredPets[activePetIndex + 1]
             return nextPet ? nextPet.id : filteredPets[0].id
+        }
+        case SET_ACTIVE_PET: {
+            return action.payload.id
         }
         default:
             return state.activePetId

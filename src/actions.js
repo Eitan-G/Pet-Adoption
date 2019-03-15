@@ -32,3 +32,11 @@ export const updateTypePreference = typePreference => {
         payload: { typePreference },
     }
 }
+
+export const SET_ACTIVE_PET = 'SET_ACTIVE_PET'
+export const setActivePet = id => {
+    return {
+        type: SET_ACTIVE_PET,
+        payload: { id }
+    }
+}

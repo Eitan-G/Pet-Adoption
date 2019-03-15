@@ -1,6 +1,6 @@
 import SavedPets from '../SavedPets'
 import { connect } from 'react-redux';
-import { setActiveTab } from '../../actions'
+import { setActivePet, setActiveTab } from '../../actions'
 
 const mapStateToProps = state => {
     return {
@@ -10,7 +10,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        setActiveTab: tab => { dispatch(setActiveTab(tab)) }
+        setActiveTab: tab => { dispatch(setActiveTab(tab)) },
+        setActivePet: id => { dispatch(setActivePet(id)) }
     }
 }
 
