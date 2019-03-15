@@ -4,8 +4,7 @@ import '../stylesheets/App.scss'
 import SearchPanelContainer from './containers/SearchPanel'
 import SavedPetsContainer from './containers/SavedPets'
 import UserProfileContainer from './containers/UserProfile'
-import PetDetailsContainer from './containers/PetDetails'
-import { NAVIGATION, PET_MODAL } from '../constants'
+import { NAVIGATION } from '../constants'
 
 class App extends Component {
   renderCurrentPanel = () => {
@@ -17,8 +16,6 @@ class App extends Component {
         return <SearchPanelContainer />
       case SETTINGS:
         return <UserProfileContainer />
-      case PET_MODAL: // Due to time constraints I'm not going to abstract modals
-        return <PetDetailsContainer />
       default:
         return <SearchPanelContainer />
     }

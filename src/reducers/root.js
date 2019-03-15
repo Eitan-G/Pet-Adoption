@@ -3,8 +3,7 @@ import {
     SAVE_CURRENT_PET,
     UPDATE_AGE_PREFERENCE,
     GO_TO_NEXT_PET,
-    UPDATE_TYPE_PREFERENCE,
-    SET_CLICKED_PET
+    UPDATE_TYPE_PREFERENCE
 } from "../actions"
 import { NAVIGATION } from "../constants";
 import pets from "../pets.json"
@@ -24,7 +23,6 @@ const initialState = {
     activePetId: filteredPets[0].id,
     savedPets: new Set(),
     activeTab: NAVIGATION.SEARCH,
-    clickedPet: null,
 }
 
 function navigation(state, action) {
@@ -84,15 +82,6 @@ function user(state, action) {
     }
 }
 
-function clickedPet(state, action) {
-    switch(action.type) {
-        case SET_CLICKED_PET:
-            return action.payload.id
-        default:
-            return state
-    }
-}
-
 export default function rootReducer(state = initialState, action) {
     return {
         ...state,
@@ -100,6 +89,5 @@ export default function rootReducer(state = initialState, action) {
         activePetId: activePet(state, action),
         activeTab: navigation(state.activeTab, action),
         currentUser: user(state.currentUser, action),
-        clickedPet: clickedPet(state.clickedPet, action)
     }
 }
