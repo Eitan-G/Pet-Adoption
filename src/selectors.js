@@ -21,6 +21,11 @@ export const getVisiblePets = createSelector(
     }
 )
 
+export const getCurrentPet = createSelector(
+    [getVisiblePets, getActivePetId],
+    (pets, id) => pets.find(pet => pet.id === id)
+)
+
 export const getNextPet = createSelector(
     [getVisiblePets, getActivePetId],
     (pets, id) => {

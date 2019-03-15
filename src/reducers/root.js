@@ -55,11 +55,11 @@ function savePet(state, action) {
 
 function user(state, action) {
     const { type, payload } = action
-    const newState = { ...state }
+    const user = { ...state }
     switch(type) {
         case UPDATE_USER:
-            newState[payload.key] = payload.value
-            return newState
+            user[payload.key] = payload.value
+            return user
         default:
             return state
     }
