@@ -1,4 +1,4 @@
-import { SET_ACTIVE_TAB, SAVE_CURRENT_PET, SET_ACTIVE_PET, UPDATE_AGE_PREFERENCE } from "../actions"
+import { SET_ACTIVE_TAB, SAVE_CURRENT_PET, UPDATE_AGE_PREFERENCE, GO_TO_NEXT_PET } from "../actions"
 import { NAVIGATION } from "../constants";
 import pets from "../pets.json"
 import settings from "../settings.json"
@@ -15,7 +15,7 @@ const initialState = {
         ...settings
     },
     pets: filteredPets,
-    activePet: 0, //considered having this be pet id but index works better for navigation
+    activePetId: filteredPets[0].id,
     savedPets: new Set(savedPets),
     activeTab: NAVIGATION.SEARCH,
 }
@@ -30,21 +30,27 @@ function navigation(state, action) {
 }
 
 function activePet(state, action) {
-    let { pets, activePet } = state
+    let { pets, activePetId } = state
+    const filteredPets = pets.filter(
+        pet => pet.type === typePreference && pet.age >= min && pet.age <= max
+    )
+    const activePetIndex = filteredPets.findIndex(pet => pet.id === activePetId)
 
     switch(action.type) {
-        case SET_ACTIVE_PET:
-            return activePet < pets.length ? activePet + 1 : 0
+        case GO_TO_NEXT_PET: {
+            const nextPet = filteredPets[activePetIndex + 1]
+            return nextPet ? nextPet.id : null
+        }
         default:
-            return state.activePet
+            return state.activePetId
     }
 }
 
 function savePet(state, action) {
     switch(action.type) {
         case SAVE_CURRENT_PET: {
-            const { savedPets, activePet } = state
-            const newSet = new Set(savedPets).add(activePet)
+            const { savedPets, activePetId } = state
+            const newSet = new Set(savedPets).add(activePetId)
             localStorage.setItem('savedPets', JSON.stringify([...newSet]))
             return newSet
         }
@@ -70,7 +76,7 @@ export default function rootReducer(state = initialState, action) {
     return {
         ...state,
         savedPets: savePet(state, action),
-        activePet: activePet(state, action),
+        activePetId: activePet(state, action),
         activeTab: navigation(state.activeTab, action),
         currentUser: user(state.currentUser, action),
     }

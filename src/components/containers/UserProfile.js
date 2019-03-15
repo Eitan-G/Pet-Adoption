@@ -11,7 +11,6 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         updateAgePreference: (key, value) => {
-            // dispatch(setActivePet)
             dispatch(updateAgePreference(key, value))
         }
     }

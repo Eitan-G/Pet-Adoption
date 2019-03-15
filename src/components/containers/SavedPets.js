@@ -4,7 +4,7 @@ import { setActiveTab } from '../../actions'
 
 const mapStateToProps = state => {
     return {
-        pets: [...state.savedPets].map(idx => state.pets[idx])
+        pets: [...state.savedPets].map(id => state.pets.find(pet => pet.id === id))
     }
 }
 

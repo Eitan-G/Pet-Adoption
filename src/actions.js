@@ -8,8 +8,8 @@ export function setActiveTab(tab) {
     }
 }
 
-export const SET_ACTIVE_PET = 'SET_ACTIVE_PET'
-export const setActivePet = () => ({ type: SET_ACTIVE_PET })
+export const GO_TO_NEXT_PET = 'GO_TO_NEXT_PET'
+export const goToNextPet = () => ({ type: GO_TO_NEXT_PET })
 
 export const SAVE_CURRENT_PET = 'SAVE_CURRENT_PET'
 export const saveCurrentPet = () => ({ type: SAVE_CURRENT_PET })

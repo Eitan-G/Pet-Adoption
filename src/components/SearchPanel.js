@@ -15,7 +15,7 @@ class SearchPanel extends Component {
             case "ArrowRight":
             case "ArrowLeft":
                 if (!this.props.pet) { //end of the line
-                    this.props.setActivePet(0)
+                    this.props.goToNextPet()
                     return
                 }
         }
