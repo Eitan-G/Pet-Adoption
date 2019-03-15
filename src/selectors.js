@@ -2,7 +2,7 @@ import { createSelector } from 'reselect'
 
 export const getCurrentUser = state => state.currentUser
 export const getAllPets = state => state.pets
-export const getSavedPets = state => state.savedPets
+export const getSavedPetIds = state => state.savedPets
 export const getActivePetId = state => state.activePetId
 export const getActiveTab = state => state.activeTab
 
@@ -31,5 +31,12 @@ export const getNextPet = createSelector(
     (pets, id) => {
         const activePetIndex = pets.findIndex(pet => pet.id === id)
         return pets[activePetIndex + 1]
+    }
+)
+
+export const getSavedPetDetails = createSelector(
+    [getAllPets, getSavedPetIds],
+    (allPets, savedIds) => {
+        return [...savedIds].map(id => allPets.find(pet => pet.id === id))
     }
 )

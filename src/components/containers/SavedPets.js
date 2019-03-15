@@ -1,14 +1,10 @@
 import SavedPets from '../SavedPets'
 import { connect } from 'react-redux';
 import { setActivePet, setActiveTab } from '../../actions'
-import { getAllPets, getSavedPets } from '../../selectors'
+import { getSavedPetDetails } from '../../selectors'
 
 const mapStateToProps = state => {
-    const allPets = getAllPets(state)
-    const savedPets = getSavedPets(state)
-    return {
-        pets: [...savedPets].map(id => allPets.find(pet => pet.id === id))
-    }
+    return { pets: getSavedPetDetails(state) }
 }
 
 const mapDispatchToProps = dispatch => {
