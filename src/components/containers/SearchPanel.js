@@ -1,19 +1,13 @@
 import { connect } from 'react-redux'
 import SearchPanel from '../SearchPanel';
 import { goToNextPet, saveCurrentPet } from '../../actions'
-import { getActivePetId } from '../../selectors';
+import { getCurrentPet, getPreferences } from '../../selectors';
 
 const mapStateToProps = state => {
-    const activePetId = getActivePetId(state)
-    const {
-        pets, currentUser: { typePreference, ageRange }
-    } = state
-    const filteredPets = pets.filter(
-        pet => pet.type === typePreference && pet.age >= ageRange.min && pet.age <= ageRange.max
-    )
+    const preferences = getPreferences(state)
     return {
-        pet: filteredPets.find(pet => pet.id === activePetId),
-        currentUser: { typePreference, ageRange },
+        pet: getCurrentPet(state),
+        currentUser: preferences,
     }
 }
 

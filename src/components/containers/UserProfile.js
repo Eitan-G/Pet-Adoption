@@ -1,10 +1,11 @@
 import { connect } from 'react-redux'
 import UserProfile from '../UserProfile'
 import { goToNextPet, updateUser } from '../../actions'
+import { getCurrentUser } from '../../selectors';
 
 const mapStateToProps = state => {
     return {
-        currentUser: state.currentUser,
+        currentUser: getCurrentUser(state),
     }
 }
 

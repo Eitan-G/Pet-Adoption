@@ -2,18 +2,13 @@ import { SET_ACTIVE_TAB, SAVE_CURRENT_PET, GO_TO_NEXT_PET, SET_ACTIVE_PET, UPDAT
 import { NAVIGATION } from "../constants";
 import pets from "../pets.json"
 import settings from "../settings.json"
-import { getActiveTab, getActivePetId } from "../selectors";
-
-const { typePreference, ageRange: { max, min } } = settings
-
-const filteredPets = pets.filter(
-    pet => pet.type === typePreference && pet.age >= min && pet.age <= max
-)
+import { getActiveTab, getActivePetId, getCurrentUser, getSavedPetIds, getVisiblePets, getNextPet } from "../selectors";
+import getInitialPet from "../helpers/get_initial_pet";
 
 const initialState = {
     currentUser: { ...settings },
     pets,
-    activePetId: filteredPets[0].id,
+    activePetId: getInitialPet(pets, settings),
     savedPets: [],
     activeTab: NAVIGATION.SEARCH,
 }
@@ -29,17 +24,13 @@ function navigation(state, action) {
 
 function activePet(state, action) {
     const activePetId = getActivePetId(state)
-    let { pets, currentUser: { typePreference, ageRange: { min, max } } } = state
-    const filteredPets = pets.filter(
-        pet => pet.type === typePreference && pet.age >= min && pet.age <= max
-    )
-    const activePetIndex = filteredPets.findIndex(pet => pet.id === activePetId)
+    const visiblePets = getVisiblePets(state)
 
     switch(action.type) {
         case GO_TO_NEXT_PET: {
-            if (filteredPets.length === 0) { return }
-            const nextPet = filteredPets[activePetIndex + 1]
-            return nextPet ? nextPet.id : filteredPets[0].id
+            if (visiblePets.length === 0) { return }
+            const nextPet = getNextPet(state)
+            return nextPet ? nextPet.id : visiblePets[0].id
         }
         case SET_ACTIVE_PET: {
             return action.payload.id
@@ -51,24 +42,24 @@ function activePet(state, action) {
 
 function savePet(state, action) {
     const activePetId = getActivePetId(state)
+    const savedPets = getSavedPetIds(state)
     switch(action.type) {
         case SAVE_CURRENT_PET: {
-            const { savedPets } = state
             const newSet = new Set(savedPets).add(activePetId)
             return newSet
         }
         default:
-            return state.savedPets
+            return savedPets
     }
 }
 
 function user(state, action) {
     const { type, payload } = action
-    const newState = { ...state }
+    const user = { ...state }
     switch(type) {
         case UPDATE_USER:
-            newState[payload.key] = payload.value
-            return newState
+            user[payload.key] = payload.value
+            return user
         default:
             return state
     }
@@ -80,6 +71,6 @@ export default function rootReducer(state = initialState, action) {
         savedPets: savePet(state, action),
         activePetId: activePet(state, action),
         activeTab: navigation(getActiveTab(state), action),
-        currentUser: user(state.currentUser, action),
+        currentUser: user(getCurrentUser(state), action),
     }
 }
