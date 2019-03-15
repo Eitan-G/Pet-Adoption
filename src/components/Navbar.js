@@ -7,7 +7,7 @@ class Navbar extends Component {
     }
 
     buildNavButton = (name, i) => {
-        return <li key={`nav-li-${i}`} onClick={() => this.handleNavClick(name)}>
+        return <li className='look-like-link' key={`nav-li-${i}`} onClick={() => this.handleNavClick(name)}>
             {name}
         </li>
     }

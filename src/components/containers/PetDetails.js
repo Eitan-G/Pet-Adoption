@@ -1,6 +1,7 @@
 import { connect } from 'react-redux'
 import PetDetails from '../PetDetails'
 import { getClickedPetDetails } from '../../selectors';
+import { setActiveTab } from '../../actions';
 
  const mapStateToProps = state => {
     return {
@@ -9,7 +10,9 @@ import { getClickedPetDetails } from '../../selectors';
 }
 
  const mapDispatchToProps = dispatch => {
-    return {}
+    return {
+        setActiveTab: tab => dispatch(setActiveTab(tab))
+    }
 }
 
  const PetDetailsContainer = connect(
