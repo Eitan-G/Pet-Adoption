@@ -31,7 +31,7 @@ class SearchPanel extends Component {
 
     renderProfile = () => this.props.pet
         ? <PetProfile pet={this.props.pet} size='large' />
-        : <div>No more pets available! Keep swiping to go back to the first</div>
+        : <div>No pets available!</div>
 
     render() {
         return this.renderProfile()

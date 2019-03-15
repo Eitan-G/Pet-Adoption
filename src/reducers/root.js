@@ -9,7 +9,6 @@ import { NAVIGATION } from "../constants";
 import pets from "../pets.json"
 import settings from "../settings.json"
 
-const savedPets = JSON.parse(localStorage.getItem('savedPets'))
 const { typePreference, ageRange: { max, min } } = settings
 
 const filteredPets = pets.filter(
@@ -22,7 +21,7 @@ const initialState = {
     },
     pets,
     activePetId: filteredPets[0].id,
-    savedPets: new Set(savedPets),
+    savedPets: new Set(),
     activeTab: NAVIGATION.SEARCH,
 }
 
@@ -58,7 +57,6 @@ function savePet(state, action) {
         case SAVE_CURRENT_PET: {
             const { savedPets, activePetId } = state
             const newSet = new Set(savedPets).add(activePetId)
-            localStorage.setItem('savedPets', JSON.stringify([...newSet]))
             return newSet
         }
         default:

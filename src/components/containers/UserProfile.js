@@ -16,6 +16,7 @@ const mapDispatchToProps = dispatch => {
         },
         updateTypePreference: preference => {
             dispatch(updateTypePreference(preference))
+            dispatch(goToNextPet())
         }
     }
 }
