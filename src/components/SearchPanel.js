@@ -1,31 +1,46 @@
 import React, { Component } from 'react'
 import PetProfile from './PetProfile'
+import { TOUCH_SWIPE_MIN_DISTANCE } from '../constants'
 
 class SearchPanel extends Component {
+    constructor(props) {
+        super(props)
+        this.state = { touchStart: null }
+        this.handleTouchStart = this.handleTouchStart.bind(this)
+        this.handleTouchEnd = this.handleTouchEnd.bind(this)
+    }
+
     componentDidMount() {
         window.addEventListener('keydown', this.onSwipe, false)
+        window.addEventListener('touchstart', this.handleTouchStart, false)
+        window.addEventListener('touchend', this.handleTouchEnd, false)
     }
 
     componentWillUnmount() {
         window.removeEventListener('keydown', this.onSwipe, false)
+        window.removeEventListener('touchstart', this.handleTouchStart, false)
+        window.removeEventListener('touchend', this.handleTouchEnd, false)
+    }
+
+    handleTouchStart(e) {
+        this.setState({ touchStart: e.touches[0] })
+    }
+
+    handleTouchEnd(e) {
+        const distance = e.changedTouches[0].pageX - this.state.touchStart.pageX
+        if (distance > TOUCH_SWIPE_MIN_DISTANCE) {
+            this.props.handleApproval(this.props.pet)
+        } else if (distance < -TOUCH_SWIPE_MIN_DISTANCE) {
+            this.props.handleRejection(this.props.pet)
+        }
+        this.setState({ touchStart: null })
     }
 
     onSwipe = e => {
-        switch(e.key) {
-            case "ArrowRight":
-            case "ArrowLeft":
-                if (!this.props.pet) { //end of the line
-                    this.props.goToNextPet()
-                    return
-                }
-        }
-        switch(e.key) {
-            case "ArrowRight":
-                this.props.handleApproval(this.props.pet)
-                break
-            case "ArrowLeft":
-                this.props.handleRejection(this.props.pet)
-                break
+        if (e.key === 'ArrowRight') {
+            this.props.handleApproval(this.props.pet)
+        } else if (e.key === 'ArrowLeft') {
+            this.props.handleRejection(this.props.pet)
         }
     }
 
