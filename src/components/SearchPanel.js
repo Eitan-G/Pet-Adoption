@@ -28,12 +28,13 @@ class SearchPanel extends Component {
 
     handleTouchEnd(e) {
         const distance = e.changedTouches[0].pageX - this.state.touchStart.pageX
+        this.setState({ touchStart: null })
+        if (e.target.className === 'blurb') { return }
         if (distance > TOUCH_SWIPE_MIN_DISTANCE) {
             this.props.handleApproval(this.props.pet)
         } else if (distance < -TOUCH_SWIPE_MIN_DISTANCE) {
             this.props.handleRejection(this.props.pet)
         }
-        this.setState({ touchStart: null })
     }
 
     onSwipe = e => {
