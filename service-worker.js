@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/Pet-Adoption/precache-manifest.8a3eafc72dbaaf68344d277be54f2267.js"
+  "/Pet-Adoption/precache-manifest.730d388a1a6c8215ce078e9aa0909c50.js"
 );
 
 workbox.clientsClaim();
