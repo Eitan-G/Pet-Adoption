@@ -1,4 +1,4 @@
-This app was built for a job interview. As a note to the interviewer, I made a few commits (Mar 17) after the deadline; this was because I wanted the app to be as complete as possible. Please feel free to ignore these commits in your judgement of this app.
+This app was built for a job interview.
 
 In order to run this app you will need to do the following:
 
